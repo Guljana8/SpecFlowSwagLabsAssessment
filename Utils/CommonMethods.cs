@@ -12,13 +12,24 @@ namespace SpecFlowProjectForSwagLabs.Utils
 {
     public class CommonMethods : BaseTest
     {
-      /* public void SendText(WebElement element, string text)
-        {
-            element.Clear();
-            Wait(5);
-            element.SendKeys(text);
-        }*/
 
+        
+        /* public void SendText(WebElement element, string text)
+          {
+              element.Clear();
+              Wait(5);
+              element.SendKeys(text);
+          }*/
+
+        
+        public string addScreenshot(IWebDriver driver, ScenarioContext scenarioContext)
+        {
+            ITakesScreenshot takesScreenshot = (ITakesScreenshot)driver;
+            Screenshot screenshot = takesScreenshot.GetScreenshot();
+            string screenshotLocation = Path.Combine(scenarioContext.ScenarioInfo.Title + ".png");
+            screenshot.SaveAsFile(screenshotLocation, ScreenshotImageFormat.Png);
+            return screenshotLocation;
+        }
         public static void Wait(int sec)
         {
             try
@@ -46,9 +57,11 @@ namespace SpecFlowProjectForSwagLabs.Utils
             element.SendKeys(text);
         }
 
-        internal void SendText(object v)
+        internal void ScrollDown()
         {
-            throw new NotImplementedException();
+            IJavaScriptExecutor js = (IJavaScriptExecutor)BaseTest.driver;
+            js.ExecuteScript("window.scrollBy(0,250);");
+
         }
     }
 }

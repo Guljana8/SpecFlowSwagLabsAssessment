@@ -9,12 +9,14 @@ using System.Threading.Tasks;
 
 namespace SpecFlowProjectForSwagLabs.BaseClass
 {
+    [Binding]
     public class BaseTest
     {
         public static IWebDriver driver;
 
 
-        [SetUp]
+        // [SetUp]
+        [BeforeScenario]
         public static void OpenBroswer()
         {
            
@@ -24,7 +26,8 @@ namespace SpecFlowProjectForSwagLabs.BaseClass
             driver.Url = "https://www.saucedemo.com/";
         }
 
-        [TearDown]
+        //[TearDown]
+        [AfterScenario]
         public static void CloseBroswer()
         {
             if(driver != null)
@@ -32,5 +35,7 @@ namespace SpecFlowProjectForSwagLabs.BaseClass
                 driver.Quit();
             }
         }
+
+
     }
 }

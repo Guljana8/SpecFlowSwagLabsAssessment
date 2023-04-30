@@ -13,7 +13,7 @@ namespace SpecFlowProjectForSwagLabs.Pages
     public class LoginPage : BaseTest
     {
 
-        private readonly IWebDriver _driver;
+     /*   private readonly IWebDriver _driver;
         // private IWebDriver usernameField;
         //private IWebDriver passwordField;
         // private IWebDriver loginButton;
@@ -50,7 +50,7 @@ namespace SpecFlowProjectForSwagLabs.Pages
          public void Click()
          {
              _driver.FindElement(loginButton).Click();
-         }
+         }*/
 
         /* [FindsBy(How = How.Id, Using = "user-name")]
          public IWebElement usernameField;
@@ -66,6 +66,7 @@ namespace SpecFlowProjectForSwagLabs.Pages
              _driver = driver;
              PageFactory.InitElements(BaseTest.driver, this);
          }*/
-
+     
+     
     }
 }
